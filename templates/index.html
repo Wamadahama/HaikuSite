@@ -1,0 +1,45 @@
+<!doctype html>
+
+<title>Haiku</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/picnicss/6.2.5/picnic.min.css">
+<script type="text/javascript">
+  function reload() {
+    location.reload();
+  }
+</script>
+<html>
+  <body>
+    <div class="flex three center">
+      <div class="border">
+
+      </div>
+      <div class="page">
+
+        <center>
+          <h2>Random Haiku</h2>
+          {% for line in haiku %}
+            {{ line }}<br>
+          {%  endfor %}
+        </center>
+
+
+        <button class="btn reload" onclick="reload();">Reload</button><br>
+
+
+        <h3>Generate from your own text</h3>
+        <form class="" action="{{ url_for('new_haiku')}}" method="post">
+          <textarea type="text" name="input-haiku" value="" placeholder=""></textarea>
+          <input class="btn" type="submit" name="submit-button" value="Submit">
+        </form>
+
+      </div>
+
+      <div class="border">
+
+      </div>
+
+    </div>
+
+  </body>
+</html>
